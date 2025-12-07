@@ -94,17 +94,3 @@ const calcDisplayBalance = function (movements) {
   labelBalance.textContent = `${balance}€`;
 };
 calcDisplayBalance(account1.movements);
-
-const dogAges = [5, 2, 4, 1, 15, 8, 3];
-const dogAges2 = [16, 6, 10, 5, 6, 1, 4];
-
-const calcAverageHumanAge = function (dogAges) {
-  const humanAges = dogAges.map(age => (age <= 2 ? age * 2 : age + 16 * 4));
-
-  const adults = humanAges.filter(age => age >= 18);
-
-  return adults.reduce((acc, age, i, arr) => acc + age / arr.length, 0);
-};
-
-console.log(calcAverageHumanAge(dogAges));
-console.log(calcAverageHumanAge(dogAges2));
