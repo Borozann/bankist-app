@@ -78,16 +78,33 @@ const displayMoviments = function (movements) {
 
 displayMoviments(account1.movements);
 
-/////////////////////////////////////////////////
-/////////////////////////////////////////////////
-// LECTURES
+const createUsernames = function (accs) {
+  accs.forEach(function (acc) {
+    acc.username = acc.owner
+      .toLowerCase()
+      .split(' ')
+      .map(usr => usr[0])
+      .join('');
+  });
+};
+createUsernames(accounts);
 
-const currencies = new Map([
-  ['USD', 'United States dollar'],
-  ['EUR', 'Euro'],
-  ['GBP', 'Pound sterling'],
-]);
+const calcDisplayBalance = function (movements) {
+  const balance = movements.reduce((acc, mov) => acc + mov, 0);
+  labelBalance.textContent = `${balance}€`;
+};
+calcDisplayBalance(account1.movements);
 
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+const dogAges = [5, 2, 4, 1, 15, 8, 3];
+const dogAges2 = [16, 6, 10, 5, 6, 1, 4];
 
-/////////////////////////////////////////////////
+const calcAverageHumanAge = function (dogAges) {
+  const humanAges = dogAges.map(age => (age <= 2 ? age * 2 : age + 16 * 4));
+
+  const adults = humanAges.filter(age => age >= 18);
+
+  return adults.reduce((acc, age, i, arr) => acc + age / arr.length, 0);
+};
+
+console.log(calcAverageHumanAge(dogAges));
+console.log(calcAverageHumanAge(dogAges2));
