@@ -1,5 +1,3 @@
-# README
-
 ## Test Users
 
 js – PIN: 1111  
